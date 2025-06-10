@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DeVigo - Joyería Exclusiva</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="blocks.css/styles.css">
+    <link rel="stylesheet" href="blocks.css/index.css">
+    <link rel="stylesheet" href="blocks.css/productos.css">
+    <link rel="stylesheet" href="blocks.css/contacto.css">
+    <link rel="stylesheet" href="blocks.css/acerca.css">
+    <link rel="stylesheet" href="blocks.css/cart.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+        section {
+            padding: 60px 0;
+        }
+        .notification {
+            position: fixed;
+            bottom: -100px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #4CAF50;
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 5px;
+            transition: bottom 0.3s ease;
+            z-index: 1000;
+        }
+
+        .notification.show {
+            bottom: 20px;
+        }
+
+        .notification.error {
+            background: #f44336;
+        }
+
+        .boton[disabled] {
+            background-color: #cccccc;
+            cursor: not-allowed;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li class="logo">
+                    <a href="#inicio">
+                        <img src="images/DEVIGOsinfondo.png" alt="DeVigo Logo" class="nav-logo">
+                    </a>
+                </li>
+                <li><a href="#inicio">Inicio</a></li>
+                <li class="dropdown">
+                    <a href="#productos">Productos</a>
+                    <div class="dropdown-content">
+                        <a href="#collares">Collares</a>
+                        <a href="#aretes">Aretes</a>
+                        <a href="#pulseras">Pulseras</a>
+                    </div>
+                </li>
+                <li><a href="#acerca">Acerca</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+                <li>
+                    <div class="cart-icon" onclick="toggleCart()">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="cart-count" id="cart-count">0</span>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Panel del Carrito -->
+    <div id="cart-panel">
+        <div class="cart-header">
+            <h3>Carrito de Compras</h3>
+            <button onclick="toggleCart()"><i class="fas fa-times"></i></button>
+        </div>
+        <div id="cart-items">
+            <!-- Los items del carrito se insertarán aquí dinámicamente -->
+        </div>
+        <div class="cart-footer">
+            <div class="cart-total">
+                <span>Total:</span>
+                <span id="cart-total">$0.00</span>
+            </div>
+            <button class="checkout-button" onclick="procederAlPago()">
+                Proceder al Pago
+            </button>
+        </div>
+    </div>
+
+    <main>
+        <!-- Sección Inicio -->
+        <section id="inicio">
+            <div class="hero-index">
+                <div class="container">
+                    <img src="images/DEVIGOsinfondo.png" alt="DeVigo Logo" class="hero-logo">
+                    <h1>Joyería Exclusiva DeVigo</h1>
+                    <p>Diseños únicos que reflejan tu elegancia</p>
+                    <a href="#productos" class="boton">Ver Colección</a>
+                </div>
+            </div>
+
+            <div class="featured-products">
+                <div class="container">
+                    <h2>Piezas Destacadas</h2>
+                    <div id="featured-products-grid" class="products-grid">
+                        <!-- Los productos destacados se cargarán dinámicamente -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección Productos -->
+        <section id="productos">
+            <div class="container">
+                <h2>Nuestra Colección</h2>
+                
+                <div class="filtros-productos">
+                    <div class="filtro-grupo">
+                        <label for="categoria">Categoría:</label>
+                        <select name="categoria" id="categoria">
+                            <option value="">Todas las categorías</option>
+                            <option value="collares">Collares</option>
+                            <option value="aretes">Aretes</option>
+                            <option value="pulseras">Pulseras</option>
+                        </select>
+                    </div>
+                    <div class="filtro-grupo">
+                        <label for="subcategoria">Estilo:</label>
+                        <select name="subcategoria" id="subcategoria">
+                            <option value="">Todos los estilos</option>
+                            <option value="casual">Casual</option>
+                            <option value="elegante">Elegante</option>
+                        </select>
+                    </div>
+                    <div class="filtro-grupo">
+                        <label for="precio">Ordenar por:</label>
+                        <select name="precio" id="precio">
+                            <option value="menor">Menor precio</option>
+                            <option value="mayor">Mayor precio</option>
+                            <option value="popular">Más populares</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Sección Collares -->
+                <section id="collares" class="categoria-section">
+                    <h3>Collares</h3>
+                    <div class="products-grid collares-grid">
+                        <!-- Los collares se cargarán dinámicamente -->
+                    </div>
+                </section>
+
+                <!-- Sección Aretes -->
+                <section id="aretes" class="categoria-section">
+                    <h3>Aretes</h3>
+                    <div class="products-grid aretes-grid">
+                        <!-- Los aretes se cargarán dinámicamente -->
+                    </div>
+                </section>
+
+                <!-- Sección Pulseras -->
+                <section id="pulseras" class="categoria-section">
+                    <h3>Pulseras</h3>
+                    <div class="products-grid pulseras-grid">
+                        <!-- Las pulseras se cargarán dinámicamente -->
+                    </div>
+                </section>
+            </div>
+        </section>
+
+        <!-- Sección Acerca -->
+        <section id="acerca">
+            <div class="acerca-hero">
+                <div class="container">
+                    <img src="images/DEVIGOsinfondo.png" alt="DeVigo Logo" class="about-logo">
+                    <h2>Sobre DeVigo</h2>
+                    <p>Artesanía y elegancia en cada pieza</p>
+                </div>
+            </div>
+
+            <div class="valores-section">
+                <div class="container">
+                    <h3>Nuestros Valores</h3>
+                    <div class="valores-grid">
+                        <div class="valor-item">
+                            <i class="fas fa-gem fa-3x"></i>
+                            <h4>Calidad</h4>
+                            <p>Materiales premium y acabados perfectos</p>
+                        </div>
+
+                        <div class="valor-item">
+                            <i class="fas fa-paint-brush fa-3x"></i>
+                            <h4>Diseño</h4>
+                            <p>Creaciones únicas y exclusivas</p>
+                        </div>
+
+                        <div class="valor-item">
+                            <i class="fas fa-heart fa-3x"></i>
+                            <h4>Pasión</h4>
+                            <p>Amor por la joyería artesanal</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección Contacto -->
+        <section id="contacto">
+            <div class="contacto-container">
+                <img src="images/DEVIGOsinfondo.png" alt="DeVigo Logo" class="contact-logo">
+                <h2>Contáctanos</h2>
+                
+                <div class="contacto-grid">
+                    <div class="contacto-form">
+                        <form id="contact-form" onsubmit="return enviarContacto(event)">
+                            <div class="form-group">
+                                <label for="nombre">Nombre:</label>
+                                <input type="text" id="nombre" name="nombre" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="email">Email:</label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="asunto">Asunto:</label>
+                                <input type="text" id="asunto" name="asunto" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="mensaje">Mensaje:</label>
+                                <textarea id="mensaje" name="mensaje" required></textarea>
+                            </div>
+
+                            <button type="submit" class="boton">Enviar Mensaje</button>
+                        </form>
+                    </div>
+
+                    <div class="info-contacto">
+                        <div class="info-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <h3>Ubicación</h3>
+                            <p>Vigo, España</p>
+                        </div>
+
+                        <div class="info-item">
+                            <i class="fas fa-phone"></i>
+                            <h3>Teléfono</h3>
+                            <p>+34 XXX XXX XXX</p>
+                        </div>
+
+                        <div class="info-item">
+                            <i class="fas fa-envelope"></i>
+                            <h3>Email</h3>
+                            <p>contacto@devigo.com</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-section">
+                    <img src="images/DEVIGOsinfondo.png" alt="DeVigo Logo" class="footer-logo">
+                    <p>Tu joyería de confianza en Vigo</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Categorías</h4>
+                    <ul>
+                        <li><a href="#collares">Collares</a></li>
+                        <li><a href="#aretes">Aretes</a></li>
+                        <li><a href="#pulseras">Pulseras</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Enlaces</h4>
+                    <ul>
+                        <li><a href="#inicio">Inicio</a></li>
+                        <li><a href="#acerca">Acerca</a></li>
+                        <li><a href="#contacto">Contacto</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Síguenos</h4>
+                    <div class="redes-sociales">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 DeVigo Joyería. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/products.js"></script>
+    <script src="js/cart.js"></script>
+    <script src="js/ui.js"></script>
+    <script>
+        // Función para manejar el envío del formulario de contacto
+        function enviarContacto(event) {
+            event.preventDefault();
+            // Aquí iría la lógica para enviar el formulario
+            alert('Mensaje enviado correctamente');
+            document.getElementById('contact-form').reset();
+        }
+
+        // Función para proceder al pago
+        function procederAlPago() {
+            if (cart.items.length === 0) {
+                alert('El carrito está vacío');
+                return;
+            }
+            // Aquí iría la lógica para proceder al pago
+            alert('Redirigiendo al proceso de pago...');
+        }
+
+        // Resaltar la sección activa en el menú
+        const sections = document.querySelectorAll('section');
+        const navLinks = document.querySelectorAll('nav ul li a');
+
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (pageYOffset >= sectionTop - 60) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href').includes(current)) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html> 

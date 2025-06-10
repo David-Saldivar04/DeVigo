@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Productos - Mi Tienda</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="blocks.css/styles.css">
+    <link rel="stylesheet" href="blocks.css/productos.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li class="logo"><a href="/">Mi Tienda</a></li>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="productos.html" class="active">Productos</a></li>
+                <li><a href="acerca.html">Acerca</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div class="container">
+            <h1>Nuestros Productos</h1>
+            
+            <section class="filtros-productos">
+                <h2>Filtrar por:</h2>
+                <select name="categoria" id="categoria">
+                    <option value="">Todas las categorías</option>
+                    <option value="categoria1">Categoría 1</option>
+                    <option value="categoria2">Categoría 2</option>
+                </select>
+            </section>
+
+            <section class="productos-grid">
+                <!-- Producto 1 -->
+                <article class="producto-card">
+                    <img src="img/producto1.jpg" alt="Producto 1" class="producto-imagen">
+                    <div class="producto-info">
+                        <h3>Producto 1</h3>
+                        <p>Descripción detallada del producto 1</p>
+                        <p class="producto-precio">$99.99</p>
+                        <a href="#" class="boton">Comprar</a>
+                    </div>
+                </article>
+
+                <!-- Producto 2 -->
+                <article class="producto-card">
+                    <img src="img/producto2.jpg" alt="Producto 2" class="producto-imagen">
+                    <div class="producto-info">
+                        <h3>Producto 2</h3>
+                        <p>Descripción detallada del producto 2</p>
+                        <p class="producto-precio">$149.99</p>
+                        <a href="#" class="boton">Comprar</a>
+                    </div>
+                </article>
+
+                <!-- Puedes agregar más productos aquí -->
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="redes-sociales">
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+            </div>
+            <p>&copy; 2024 Mi Tienda. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+</body>
+</html> 
