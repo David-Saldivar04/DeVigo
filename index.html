@@ -49,49 +49,61 @@
 <body>
     <header>
         <nav>
-            <ul>
-                <li class="logo">
-                    <a href="#inicio">
-                        <img src="images/DEVIGOsinfondo.png" alt="DeVigo Logo" class="nav-logo">
+            <div class="nav-container">
+                <div class="nav-left">
+                    <a href="#inicio" class="logo">
+                        <img src="images/logos/DeVigoLogo blanco sin fondo.png" alt="DeVigo Logo" class="nav-logo">
                     </a>
-                </li>
-                <li><a href="#inicio">Inicio</a></li>
-                <li class="dropdown">
-                    <a href="#productos">Productos</a>
-                    <div class="dropdown-content">
-                        <a href="#collares">Collares</a>
-                        <a href="#aretes">Aretes</a>
-                        <a href="#pulseras">Pulseras</a>
-                    </div>
-                </li>
-                <li><a href="#acerca">Acerca</a></li>
-                <li><a href="#contacto">Contacto</a></li>
-                <li>
-                    <div class="cart-icon" onclick="toggleCart()">
-                        <i class="fas fa-shopping-cart"></i>
-                        <span class="cart-count" id="cart-count">0</span>
-                    </div>
-                </li>
-            </ul>
+                </div>
+                <div class="nav-right">
+                    <button class="menu-toggle" id="menu-toggle">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                    <ul class="nav-menu">
+                        <li><a href="#inicio">Inicio</a></li>
+                        <li class="dropdown">
+                            <a href="#productos">Productos <i class="fas fa-chevron-down"></i></a>
+                            <div class="dropdown-content">
+                                <a href="#collares">Collares</a>
+                                <a href="#aretes">Aretes</a>
+                                <a href="#pulseras">Pulseras</a>
+                            </div>
+                        </li>
+                        <li><a href="#acerca">Acerca</a></li>
+                        <li><a href="#contacto">Contacto</a></li>
+                        <li>
+                            <div class="cart-icon" onclick="toggleCart()">
+                                <i class="fas fa-shopping-cart"></i>
+                                <span class="cart-count" id="cart-count">0</span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
         </nav>
     </header>
 
+    <!-- Overlay para el carrito -->
+    <div class="cart-overlay" onclick="toggleCart()"></div>
+
     <!-- Panel del Carrito -->
-    <div id="cart-panel">
+    <div class="cart-panel">
         <div class="cart-header">
-            <h3>Carrito de Compras</h3>
-            <button onclick="toggleCart()"><i class="fas fa-times"></i></button>
+            <h3>Tu Carrito</h3>
+            <button class="close-cart" onclick="toggleCart()">
+                <i class="fas fa-times"></i>
+            </button>
         </div>
-        <div id="cart-items">
-            <!-- Los items del carrito se insertarán aquí dinámicamente -->
+        <div id="cart-items" class="cart-items">
+            <!-- Los items del carrito se cargarán dinámicamente -->
         </div>
         <div class="cart-footer">
             <div class="cart-total">
                 <span>Total:</span>
-                <span id="cart-total">$0.00</span>
+                <span id="cart-total">$0.00 MXN</span>
             </div>
-            <button class="checkout-button" onclick="procederAlPago()">
-                Proceder al Pago
+            <button class="boton boton-primario" onclick="procederAlPago()">
+                Realizar Pedido
             </button>
         </div>
     </div>
@@ -101,7 +113,7 @@
         <section id="inicio">
             <div class="hero-index">
                 <div class="container">
-                    <img src="images/DEVIGOsinfondo.png" alt="DeVigo Logo" class="hero-logo">
+                    <img src="images/logos/DeVigoLogo blanco sin fondo.png" alt="DeVigo Logo" class="hero-logo">
                     <h1>Joyería Exclusiva DeVigo</h1>
                     <p>Diseños únicos que reflejan tu elegancia</p>
                     <a href="#productos" class="boton">Ver Colección</a>
@@ -274,7 +286,7 @@
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-section">
-                    <img src="images/DEVIGOsinfondo.png" alt="DeVigo Logo" class="footer-logo">
+                    <img src="images/logos/DeVigoLogo blanco sin fondo.png" alt="DeVigo Logo" class="footer-logo">
                     <p>Tu joyería de confianza en Vigo</p>
                 </div>
                 <div class="footer-section">
@@ -313,12 +325,24 @@
     <script src="js/cart.js"></script>
     <script src="js/ui.js"></script>
     <script>
-        // Función para manejar el envío del formulario de contacto
-        function enviarContacto(event) {
-            event.preventDefault();
-            // Aquí iría la lógica para enviar el formulario
-            alert('Mensaje enviado correctamente');
-            document.getElementById('contact-form').reset();
+        // Función para el menú móvil
+        document.getElementById('menu-toggle').addEventListener('click', function() {
+            document.querySelector('.nav-menu').classList.toggle('active');
+            this.classList.toggle('active');
+        });
+
+        // Cerrar menú al hacer clic en un enlace
+        document.querySelectorAll('.nav-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                document.querySelector('.nav-menu').classList.remove('active');
+                document.getElementById('menu-toggle').classList.remove('active');
+            });
+        });
+
+        // Función para el carrito
+        function toggleCart() {
+            document.querySelector('.cart-panel').classList.toggle('active');
+            document.querySelector('.cart-overlay').classList.toggle('active');
         }
 
         // Función para proceder al pago
@@ -331,15 +355,22 @@
             alert('Redirigiendo al proceso de pago...');
         }
 
-        // Resaltar la sección activa en el menú
+        // Función para manejar el envío del formulario de contacto
+        function enviarContacto(event) {
+            event.preventDefault();
+            // Aquí iría la lógica para enviar el formulario
+            alert('Mensaje enviado correctamente');
+            document.getElementById('contact-form').reset();
+        }
+
+        // Resaltar sección activa
         const sections = document.querySelectorAll('section');
-        const navLinks = document.querySelectorAll('nav ul li a');
+        const navLinks = document.querySelectorAll('.nav-menu a');
 
         window.addEventListener('scroll', () => {
             let current = '';
             sections.forEach(section => {
                 const sectionTop = section.offsetTop;
-                const sectionHeight = section.clientHeight;
                 if (pageYOffset >= sectionTop - 60) {
                     current = section.getAttribute('id');
                 }

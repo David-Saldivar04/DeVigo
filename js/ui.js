@@ -144,6 +144,11 @@ function loadProductsByCategory(category) {
     });
 }
 
+// Función para formatear precio en pesos mexicanos
+function formatPrice(price) {
+    return `$${price.toFixed(2)} MXN`;
+}
+
 // Función para crear una tarjeta de producto
 function createProductCard(product) {
     const card = document.createElement('article');
@@ -166,10 +171,10 @@ function createProductCard(product) {
             <p>${product.description}</p>
             ${product.originalPrice ? 
                 `<div class="precio-container">
-                    <p class="precio-anterior">€${product.originalPrice.toFixed(2)}</p>
-                    <p class="producto-precio">€${product.price.toFixed(2)}</p>
+                    <p class="precio-anterior">${formatPrice(product.originalPrice)}</p>
+                    <p class="producto-precio">${formatPrice(product.price)}</p>
                 </div>` :
-                `<p class="producto-precio">€${product.price.toFixed(2)}</p>`
+                `<p class="producto-precio">${formatPrice(product.price)}</p>`
             }
             <button class="boton" onclick="addToCart('${product.id}', '${product.name}', ${product.price}, '${product.image}')">
                 Agregar al Carrito
