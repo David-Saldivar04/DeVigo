@@ -47,20 +47,21 @@ class ShoppingCart {
         const cartItems = document.getElementById('cart-items');
         const totalItems = this.items.reduce((sum, item) => sum + item.quantity, 0);
 
-        // Actualizar contador del carrito
-        cartCount.textContent = totalItems;
+        if (cartCount) {
+            cartCount.textContent = totalItems;
+        }
 
-        // Actualizar total
-        cartTotal.textContent = `$${this.total.toFixed(2)}`;
+        if (cartTotal) {
+            cartTotal.textContent = `$${this.total.toFixed(2)} MXN`;
+        }
 
-        // Actualizar lista de items
         if (cartItems) {
             cartItems.innerHTML = this.items.map(item => `
                 <div class="cart-item" data-id="${item.id}">
                     <img src="${item.image}" alt="${item.name}" class="cart-item-image">
                     <div class="cart-item-details">
                         <h4>${item.name}</h4>
-                        <p>$${item.price.toFixed(2)}</p>
+                        <p>$${item.price.toFixed(2)} MXN</p>
                         <div class="quantity-controls">
                             <button onclick="cart.updateQuantity('${item.id}', ${item.quantity - 1})">-</button>
                             <span>${item.quantity}</span>
@@ -87,10 +88,17 @@ const cart = new ShoppingCart();
 // Función para mostrar/ocultar el carrito
 function toggleCart() {
     const cartPanel = document.getElementById('cart-panel');
-    cartPanel.classList.toggle('show');
+    if (cartPanel) {
+        cartPanel.classList.toggle('show');
+    }
 }
 
 // Función para agregar producto al carrito
 function addToCart(productId, name, price, image) {
-    cart.addItem({id: productId, name, price, image});
+    cart.addItem({
+        id: productId,
+        name: name,
+        price: price,
+        image: image
+    });
 } 

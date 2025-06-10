@@ -7,44 +7,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="blocks.css/styles.css">
     <link rel="stylesheet" href="blocks.css/index.css">
-    <link rel="stylesheet" href="blocks.css/productos.css">
-    <link rel="stylesheet" href="blocks.css/contacto.css">
-    <link rel="stylesheet" href="blocks.css/acerca.css">
-    <link rel="stylesheet" href="blocks.css/cart.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <style>
-        html {
-            scroll-behavior: smooth;
-        }
-        section {
-            padding: 60px 0;
-        }
-        .notification {
-            position: fixed;
-            bottom: -100px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: #4CAF50;
-            color: white;
-            padding: 1rem 2rem;
-            border-radius: 5px;
-            transition: bottom 0.3s ease;
-            z-index: 1000;
-        }
-
-        .notification.show {
-            bottom: 20px;
-        }
-
-        .notification.error {
-            background: #f44336;
-        }
-
-        .boton[disabled] {
-            background-color: #cccccc;
-            cursor: not-allowed;
-        }
-    </style>
+    <script src="https://kit.fontawesome.com/your-code.js" crossorigin="anonymous"></script>
 </head>
 <body>
     <header>
@@ -69,7 +32,7 @@
                                 <a href="#pulseras">Pulseras</a>
                             </div>
                         </li>
-                        <li><a href="#acerca">Acerca</a></li>
+                        <li><a href="#fundadora">Acerca de</a></li>
                         <li><a href="#contacto">Contacto</a></li>
                         <li>
                             <div class="cart-icon" onclick="toggleCart()">
@@ -83,33 +46,8 @@
         </nav>
     </header>
 
-    <!-- Overlay para el carrito -->
-    <div class="cart-overlay" onclick="toggleCart()"></div>
-
-    <!-- Panel del Carrito -->
-    <div class="cart-panel">
-        <div class="cart-header">
-            <h3>Tu Carrito</h3>
-            <button class="close-cart" onclick="toggleCart()">
-                <i class="fas fa-times"></i>
-            </button>
-        </div>
-        <div id="cart-items" class="cart-items">
-            <!-- Los items del carrito se cargarán dinámicamente -->
-        </div>
-        <div class="cart-footer">
-            <div class="cart-total">
-                <span>Total:</span>
-                <span id="cart-total">$0.00 MXN</span>
-            </div>
-            <button class="boton boton-primario" onclick="procederAlPago()">
-                Realizar Pedido
-            </button>
-        </div>
-    </div>
-
     <main>
-        <!-- Sección Inicio -->
+        <!-- Sección Hero -->
         <section id="inicio">
             <div class="hero-index">
                 <div class="container">
@@ -119,211 +57,206 @@
                     <a href="#productos" class="boton">Ver Colección</a>
                 </div>
             </div>
+        </section>
 
-            <div class="featured-products">
-                <div class="container">
-                    <h2>Piezas Destacadas</h2>
-                    <div id="featured-products-grid" class="products-grid">
-                        <!-- Los productos destacados se cargarán dinámicamente -->
+        <!-- Sección Introductoria - Historia de la Fundadora -->
+        <section id="fundadora" class="intro-section">
+            <div class="container">
+                <div class="intro-grid">
+                    <div class="intro-text">
+                        <h2>Donde el arte se transforma en joya</h2>
+                        <p>En De Vigo, cada pieza nace del corazón y las manos de Carmen A. Collazo, artesana apasionada que encontró su vocación entre hilos de metal, piedras y fuego. Lo que comenzó como una curiosidad guiada por la intuición se convirtió en un arte pulido con dedicación, aprendizaje y técnica.</p>
+                        <p>Inspirada por la belleza de lo natural y la fuerza de lo auténtico, Carmen combina su destreza manual, creatividad y sensibilidad estética para dar vida a joyas únicas, hechas a mano con alma y propósito.</p>
+                        <p>Descubre una colección donde cada detalle cuenta una historia, y cada creación refleja el amor por lo bien hecho.</p>
+                        <div class="intro-buttons">
+                            <a href="#vision-mision" class="boton boton-secundario">Conoce nuestra visión y valores</a>
+                        </div>
+                    </div>
+                    <div class="intro-image">
+                        <img src="images/De Vigo fotos/carmen.jpg" alt="Carmen A. Collazo - Fundadora de DeVigo" class="founder-image">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección Visión y Misión -->
+        <section id="vision-mision" class="about-section">
+            <div class="container">
+                <h2 class="section-title">Conoce Nuestra Visión</h2>
+                <div class="about-grid">
+                    <div class="about-card">
+                        <div class="about-card-content">
+                            <h3>Misión</h3>
+                            <p>Nuestra misión consiste en embellecer y realzar el estilo personal de cada uno de nuestros clientes con diseños originales de bisutería artesanal.</p>
+                        </div>
+                    </div>
+
+                    <div class="about-card">
+                        <div class="about-card-content">
+                            <h3>Visión</h3>
+                            <p>Nuestra visión consiste en: Ser la empresa líder en la industria de la bisutería artesanal a nivel nacional e internacional, basándonos en la satisfacción total de nuestros clientes.</p>
+                        </div>
+                    </div>
+
+                    <div class="about-card">
+                        <div class="about-card-content">
+                            <h3>Valores</h3>
+                            <div class="valores-grid">
+                                <span class="valor-tag">Honestidad</span>
+                                <span class="valor-tag">Compromiso</span>
+                                <span class="valor-tag">Calidad</span>
+                                <span class="valor-tag">Creatividad</span>
+                                <span class="valor-tag">Pasión</span>
+                                <span class="valor-tag">Respeto</span>
+                                <span class="valor-tag">Autenticidad</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="about-card">
+                        <div class="about-card-content">
+                            <h3>Objetivo</h3>
+                            <p>Transformar, realzar, inspirar y empoderar la belleza fusionando la creatividad con la tradición.</p>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- Sección Productos -->
-        <section id="productos">
+        <section id="productos" class="products-section">
             <div class="container">
-                <h2>Nuestra Colección</h2>
+                <h2 class="section-title">Nuestras Creaciones</h2>
                 
-                <div class="filtros-productos">
-                    <div class="filtro-grupo">
-                        <label for="categoria">Categoría:</label>
-                        <select name="categoria" id="categoria">
-                            <option value="">Todas las categorías</option>
-                            <option value="collares">Collares</option>
-                            <option value="aretes">Aretes</option>
-                            <option value="pulseras">Pulseras</option>
-                        </select>
-                    </div>
-                    <div class="filtro-grupo">
-                        <label for="subcategoria">Estilo:</label>
-                        <select name="subcategoria" id="subcategoria">
-                            <option value="">Todos los estilos</option>
-                            <option value="casual">Casual</option>
-                            <option value="elegante">Elegante</option>
-                        </select>
-                    </div>
-                    <div class="filtro-grupo">
-                        <label for="precio">Ordenar por:</label>
-                        <select name="precio" id="precio">
-                            <option value="menor">Menor precio</option>
-                            <option value="mayor">Mayor precio</option>
-                            <option value="popular">Más populares</option>
-                        </select>
-                    </div>
+                <!-- Filtros -->
+                <div class="filters">
+                    <button class="filter-btn active" data-category="todos">Todos</button>
+                    <button class="filter-btn" data-category="collares">Collares</button>
+                    <button class="filter-btn" data-category="aretes">Aretes</button>
+                    <button class="filter-btn" data-category="pulseras">Pulseras</button>
                 </div>
 
-                <!-- Sección Collares -->
-                <section id="collares" class="categoria-section">
-                    <h3>Collares</h3>
-                    <div class="products-grid collares-grid">
-                        <!-- Los collares se cargarán dinámicamente -->
-                    </div>
-                </section>
-
-                <!-- Sección Aretes -->
-                <section id="aretes" class="categoria-section">
-                    <h3>Aretes</h3>
-                    <div class="products-grid aretes-grid">
-                        <!-- Los aretes se cargarán dinámicamente -->
-                    </div>
-                </section>
-
-                <!-- Sección Pulseras -->
-                <section id="pulseras" class="categoria-section">
-                    <h3>Pulseras</h3>
-                    <div class="products-grid pulseras-grid">
-                        <!-- Las pulseras se cargarán dinámicamente -->
-                    </div>
-                </section>
-            </div>
-        </section>
-
-        <!-- Sección Acerca -->
-        <section id="acerca">
-            <div class="acerca-hero">
-                <div class="container">
-                    <img src="images/DEVIGOsinfondo.png" alt="DeVigo Logo" class="about-logo">
-                    <h2>Sobre DeVigo</h2>
-                    <p>Artesanía y elegancia en cada pieza</p>
+                <!-- Subcategorías -->
+                <div class="sub-filters">
+                    <button class="sub-filter-btn active" data-style="todos">Todos los estilos</button>
+                    <button class="sub-filter-btn" data-style="casual">Casual</button>
+                    <button class="sub-filter-btn" data-style="elegante">Elegante</button>
                 </div>
-            </div>
 
-            <div class="valores-section">
-                <div class="container">
-                    <h3>Nuestros Valores</h3>
-                    <div class="valores-grid">
-                        <div class="valor-item">
-                            <i class="fas fa-gem fa-3x"></i>
-                            <h4>Calidad</h4>
-                            <p>Materiales premium y acabados perfectos</p>
-                        </div>
-
-                        <div class="valor-item">
-                            <i class="fas fa-paint-brush fa-3x"></i>
-                            <h4>Diseño</h4>
-                            <p>Creaciones únicas y exclusivas</p>
-                        </div>
-
-                        <div class="valor-item">
-                            <i class="fas fa-heart fa-3x"></i>
-                            <h4>Pasión</h4>
-                            <p>Amor por la joyería artesanal</p>
-                        </div>
-                    </div>
+                <!-- Grid de Productos -->
+                <div id="products-grid" class="products-grid">
+                    <!-- Los productos se cargarán dinámicamente aquí -->
                 </div>
             </div>
         </section>
 
         <!-- Sección Contacto -->
-        <section id="contacto">
-            <div class="contacto-container">
-                <img src="images/DEVIGOsinfondo.png" alt="DeVigo Logo" class="contact-logo">
-                <h2>Contáctanos</h2>
-                
-                <div class="contacto-grid">
-                    <div class="contacto-form">
-                        <form id="contact-form" onsubmit="return enviarContacto(event)">
-                            <div class="form-group">
-                                <label for="nombre">Nombre:</label>
-                                <input type="text" id="nombre" name="nombre" required>
-                            </div>
-
-                            <div class="form-group">
-                                <label for="email">Email:</label>
-                                <input type="email" id="email" name="email" required>
-                            </div>
-
-                            <div class="form-group">
-                                <label for="asunto">Asunto:</label>
-                                <input type="text" id="asunto" name="asunto" required>
-                            </div>
-
-                            <div class="form-group">
-                                <label for="mensaje">Mensaje:</label>
-                                <textarea id="mensaje" name="mensaje" required></textarea>
-                            </div>
-
-                            <button type="submit" class="boton">Enviar Mensaje</button>
-                        </form>
-                    </div>
-
-                    <div class="info-contacto">
-                        <div class="info-item">
+        <section id="contacto" class="contact-section">
+            <div class="container">
+                <h2 class="section-title">Contáctanos</h2>
+                <div class="contact-grid">
+                    <div class="contact-info">
+                        <div class="contact-item">
                             <i class="fas fa-map-marker-alt"></i>
                             <h3>Ubicación</h3>
-                            <p>Vigo, España</p>
+                            <p>Mazatlán, Sinaloa, México</p>
                         </div>
-
-                        <div class="info-item">
+                        <div class="contact-item">
                             <i class="fas fa-phone"></i>
                             <h3>Teléfono</h3>
-                            <p>+34 XXX XXX XXX</p>
+                            <p><a href="tel:+526692163890">669-216-3890</a></p>
                         </div>
-
-                        <div class="info-item">
+                        <div class="contact-item">
                             <i class="fas fa-envelope"></i>
-                            <h3>Email</h3>
-                            <p>contacto@devigo.com</p>
+                            <h3>Correo</h3>
+                            <p><a href="mailto:contacto@devigo.com">contacto@devigo.com</a></p>
                         </div>
+                        <div class="contact-social">
+                            <h3>Síguenos en redes sociales</h3>
+                            <div class="social-links">
+                                <a href="#" class="social-link"><i class="fab fa-facebook"></i></a>
+                                <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                                <a href="#" class="social-link"><i class="fab fa-whatsapp"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="contact-form">
+                        <form id="contact-form" onsubmit="enviarContacto(event)">
+                            <div class="form-group">
+                                <label for="nombre">Nombre</label>
+                                <input type="text" id="nombre" name="nombre" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Correo electrónico</label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="mensaje">Mensaje</label>
+                                <textarea id="mensaje" name="mensaje" required></textarea>
+                            </div>
+                            <button type="submit" class="boton">Enviar mensaje</button>
+                        </form>
                     </div>
                 </div>
             </div>
         </section>
     </main>
 
+    <!-- Panel del Carrito -->
+    <div id="cart-panel">
+        <div class="cart-header">
+            <h3>Carrito de Compras</h3>
+            <button onclick="toggleCart()"><i class="fas fa-times"></i></button>
+        </div>
+        <div id="cart-items">
+            <!-- Los items del carrito se cargarán aquí -->
+        </div>
+        <div class="cart-footer">
+            <div class="cart-total">
+                <span>Total:</span>
+                <span id="cart-total">$0.00 MXN</span>
+            </div>
+            <button class="checkout-button">Proceder al Pago</button>
+        </div>
+    </div>
+
     <footer>
         <div class="container">
-            <div class="footer-grid">
-                <div class="footer-section">
+            <div class="footer-content">
+                <div class="footer-info">
                     <img src="images/logos/DeVigoLogo blanco sin fondo.png" alt="DeVigo Logo" class="footer-logo">
-                    <p>Tu joyería de confianza en Vigo</p>
+                    <p>Diseños únicos hechos a mano en Mazatlán, Sinaloa</p>
                 </div>
-                <div class="footer-section">
-                    <h4>Categorías</h4>
-                    <ul>
-                        <li><a href="#collares">Collares</a></li>
-                        <li><a href="#aretes">Aretes</a></li>
-                        <li><a href="#pulseras">Pulseras</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h4>Enlaces</h4>
+                <div class="footer-links">
+                    <h4>Enlaces rápidos</h4>
                     <ul>
                         <li><a href="#inicio">Inicio</a></li>
-                        <li><a href="#acerca">Acerca</a></li>
+                        <li><a href="#productos">Productos</a></li>
+                        <li><a href="#fundadora">Acerca de</a></li>
                         <li><a href="#contacto">Contacto</a></li>
                     </ul>
                 </div>
-                <div class="footer-section">
-                    <h4>Síguenos</h4>
-                    <div class="redes-sociales">
+                <div class="footer-contact">
+                    <h4>Contacto</h4>
+                    <p><i class="fas fa-phone"></i> 669-216-3890</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Mazatlán, Sinaloa</p>
+                    <div class="footer-social">
                         <a href="#"><i class="fab fa-facebook"></i></a>
                         <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-whatsapp"></i></a>
                     </div>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2024 DeVigo Joyería. Todos los derechos reservados.</p>
+                <p>&copy; 2024 DeVigo. Todos los derechos reservados.</p>
             </div>
         </div>
     </footer>
 
     <!-- Scripts -->
-    <script src="js/products.js"></script>
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
     <script src="js/cart.js"></script>
-    <script src="js/ui.js"></script>
+    <script src="js/products.js"></script>
     <script>
         // Función para el menú móvil
         document.getElementById('menu-toggle').addEventListener('click', function() {
@@ -338,22 +271,6 @@
                 document.getElementById('menu-toggle').classList.remove('active');
             });
         });
-
-        // Función para el carrito
-        function toggleCart() {
-            document.querySelector('.cart-panel').classList.toggle('active');
-            document.querySelector('.cart-overlay').classList.toggle('active');
-        }
-
-        // Función para proceder al pago
-        function procederAlPago() {
-            if (cart.items.length === 0) {
-                alert('El carrito está vacío');
-                return;
-            }
-            // Aquí iría la lógica para proceder al pago
-            alert('Redirigiendo al proceso de pago...');
-        }
 
         // Función para manejar el envío del formulario de contacto
         function enviarContacto(event) {
